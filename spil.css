@@ -1,6 +1,6 @@
 /* Billede baggrund */
 body {
-    background-image: url('./image/baggrund.png'); 
+    background-image: url('image/baggrund.png'); 
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
