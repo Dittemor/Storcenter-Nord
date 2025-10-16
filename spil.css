@@ -1,0 +1,217 @@
+/* Billede baggrund */
+body {
+    background-image: url('../image/Fiskebaggrund1.png'); 
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    min-height: 400vh;
+}
+
+/* Ikonerne i headeren */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.left-icons {
+    display: flex;
+}
+
+.right-icons {
+    display: flex;
+    gap: 30px;
+}
+
+/* home icon */
+.icon {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
+
+/* info icon */
+.iconinfo {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+
+.iconinfo:hover {
+    transform: scale(1.2);
+}
+
+/* instillinger icon */
+.iconinstillinger {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+
+.iconinstillinger:hover {
+    transform: scale(1.2);
+}
+
+
+
+/* === FISK SEKTION – OPDATERET === */
+
+/* Generel fiskestil */
+.swimming-fish {
+    position: absolute;
+    left: -200px; /* starter uden for skærmen til venstre */
+    z-index: 500;
+    animation: swimAcross linear infinite;
+    cursor: pointer;
+}
+
+.fish {
+    width: 180px;
+    height: auto;
+}
+
+/* Fordel fiskene jævnt over hele skærmen (0–95% i højden)
+   og giv dem lidt forskellig hastighed for naturlig bevægelse */
+.fish1  { top:  40%;  animation-duration: 20s; }
+.fish2  { top: 10%;  animation-duration: 24s; }
+.fish3  { top: 15%;  animation-duration: 18s; }
+.fish6  { top: 30%;  animation-duration: 28s; }
+.fish9  { top: 45%;  animation-duration: 25s; }
+.fish12 { top: 60%;  animation-duration: 23s; }
+.fish13 { top: 65%;  animation-duration: 31s; }
+.fish14 { top: 70%;  animation-duration: 28s; }
+.fish15 { top: 75%;  animation-duration: 26s; }
+.fish16 { top: 80%;  animation-duration: 33s; }
+.fish17 { top: 85%;  animation-duration: 24s; }
+.fish18 { top: 73%;  animation-duration: 32s; }
+.fish19 { top: 12%;  animation-duration: 27s; }
+.fish20 { top: 38%;  animation-duration: 30s; }
+
+
+/* Animation for at svømme på tværs af skærmen */
+@keyframes swimAcross {
+    0% {
+        left: -200px; /* Starter til venstre uden for skærmen */
+        transform: scaleX(1); /* Normal retning */
+    }
+    50% {
+        left: calc(100vw + 200px); /* Går til højre uden for skærmen */
+        transform: scaleX(1);
+    }
+    51% {
+        transform: scaleX(-1); /* Vender om */
+    }
+    100% {
+        left: -200px; /* Tilbage til start */
+        transform: scaleX(-1); /* Stadig vendt om */
+    }
+}
+
+/* Dykker animation */
+.diver {
+    position: absolute;
+    left: 70%; /* Fast position fra venstre */
+    top: -100px; /* Starter over skærmen */
+    z-index: 600; /* over fiskene */
+    animation: dive 100s infinite linear;
+    cursor: pointer;
+}
+
+.diver-img {
+    width: 200px;
+    height: auto;
+}
+
+/* Dykke animation - bevægelse op og ned */
+@keyframes dive {
+    0% {
+        top: 100px; /* Starter over skærmen */
+    }
+    45% {
+        top: 550vh; /* Dykker ned til bunden */
+    }
+     50% {
+        top: 550vh; /* Pause ved bunden */
+    }
+    95% {
+        top: 100px; /* Tilbage til toppen */
+    }
+    100% {
+        top: 100px; /* Klar til ny dykke */
+    }
+}
+        
+
+/* INFOBOKSE */
+
+/* Infoboks styling */
+.info-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Billede af fanget fisk */
+.caught-fish-image {
+    width: 180px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Opdater info-content for bedre layout */
+.info-content {
+    background-color: rgb(255, 247, 239);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.info-content h3 {
+    margin-top: 10px;
+    color: #ff9812;
+}
+

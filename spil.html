@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FISKE SPIL</title>
+    <!-- Spil-side lavet af Mia -->
+    <link rel="stylesheet" href="spil.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left-icons">
+                <a href="#home">
+                   <img src="image/home.png" alt="Home" class="icon">
+                </a>
+            </div>
+            <div class="right-icons">
+                 <a href="#info">
+                     <img src="image/info.png" alt="Info" class="iconinfo">
+                 </a>
+
+            <a href="#indstillinger">
+                <img src="image/instillinger.png" alt="Indstillinger" class="iconinstillinger">
+            </a>
+            </div>  
+        </nav>
+    </header>
+
+    <!-- === FISK SEKTION === -->
+
+<!-- Fisk 1 (Mia) -->
+ <div class="swimming-fish" onclick="showFishInfo('fish1')">
+    <img src="image/fisk.png" alt="Mias fisk" class="fish"> 
+</div>
+
+<!-- Fisk 2 -->
+<div class="swimming-fish fish2" onclick="showFishInfo('fish2')">
+    <img src="image/flerfarver.png" alt="Fisk 2" class="fish">
+</div>
+
+<!-- Fisk 3 (Melissa) -->
+<div class="swimming-fish fish3" onclick="showFishInfo('fish3')">
+    <img src="image/melissa.png" alt="Melissas fisk" class="fish">
+</div>
+
+<!-- Fisk 4 -->
+<div class="swimming-fish fish4" onclick="showFishInfo('fish4')">
+    <img src="image/orange.png" alt="Fisk 4" class="fish">
+</div>
+
+<!-- Fisk 5 -->
+<div class="swimming-fish fish5" onclick="showFishInfo('fish5')">
+    <img src="image/pink.png" alt="Fisk 5" class="fish">
+</div>
+
+<!-- Fisk 6 -->
+<div class="swimming-fish fish6" onclick="showFishInfo('fish6')">
+    <img src="image/stiber.png" alt="Fisk 6" class="fish">
+</div>
+
+<!-- Fisk 7 -->
+<div class="swimming-fish fish7" onclick="showFishInfo('fish7')">
+    <img src="image/fisk7.png" alt="Fisk 7" class="fish">
+</div>
+
+<!-- Fisk 8 -->
+<div class="swimming-fish fish8" onclick="showFishInfo('fish8')">
+    <img src="image/fisk8.png" alt="Fisk 8" class="fish">
+</div>
+
+<!-- Fisk 9 -->
+<div class="swimming-fish fish9" onclick="showFishInfo('fish9')">
+    <img src="image/fisk9.png" alt="Fisk 9" class="fish">
+</div>
+
+<!-- Fisk 10 -->
+<div class="swimming-fish fish10" onclick="showFishInfo('fish10')">
+    <img src="image/fisk10.png" alt="Fisk 10" class="fish">
+</div>
+
+<!-- Fisk 11 -->
+<div class="swimming-fish fish11" onclick="showFishInfo('fish11')">
+    <img src="image/fisk11.png" alt="Fisk 11" class="fish">
+</div>
+
+<!-- Fisk 12 -->
+<div class="swimming-fish fish12" onclick="showFishInfo('fish12')">
+    <img src="image/fisk12.png" alt="Fisk 12" class="fish">
+</div>
+
+<!-- Fisk 13 (Benjamin) -->
+<div class="swimming-fish fish13" onclick="showFishInfo('fish13')">
+    <img src="image/fisk13.png" alt="Benjamins fisk" class="fish">
+</div>
+
+<!-- Fisk 14 -->
+<div class="swimming-fish fish14" onclick="showFishInfo('fish14')">
+    <img src="image/fisk14.png" alt="Fisk 14" class="fish">
+</div>
+
+<!-- Fisk 15 -->
+<div class="swimming-fish fish15" onclick="showFishInfo('fish15')">
+    <img src="image/fisk15.png" alt="Fisk 15" class="fish">
+</div>
+
+<!-- Fisk 16 -->
+<div class="swimming-fish fish16" onclick="showFishInfo('fish16')">
+    <img src="image/fisk16.png" alt="Fisk 16" class="fish">
+</div>
+
+<!-- Fisk 17 -->
+<div class="swimming-fish fish17" onclick="showFishInfo('fish17')">
+    <img src="image/fisk17.png" alt="Fisk 17" class="fish">
+</div>
+
+<!-- Fisk 18 (Ditte)-->
+<div class="swimming-fish fish18" onclick="showFishInfo('fish18')">
+    <img src="image/fisk18.png" alt="Dittes fisk" class="fish">
+</div>
+
+<!-- Fisk 19 -->
+<div class="swimming-fish fish19" onclick="showFishInfo('fish19')">
+    <img src="image/fisk19.png" alt="Fisk 19" class="fish">
+</div>
+
+<!-- Fisk 20 -->
+<div class="swimming-fish fish20" onclick="showFishInfo('fish20')">
+    <img src="image/fisk20.png" alt="Fisk 20" class="fish">
+</div>
+
+<!-- Fisk 21 -->
+<div class="swimming-fish fish21" onclick="showFishInfo('fish21')">
+    <img src="image/fisk21.png" alt="Fisk 21" class="fish">
+</div>
+
+<!-- Dykker (lavet af Mia)-->
+<div class="diver">
+    <img src="image/mand.png" alt="Dykker" class="diver-img">
+</div>
+
+<!-- === INFOBOKSE === -->
+
+<!-- Infoboks for Mias fisk -->
+<div id="fish1-info" class="info-box hidden">
+    <div class="info-content">
+        <span class="close-btn" onclick="closeFishInfo('fish1')">&times;</span>
+            <img src="image/fisk.png" alt="Mias fisk" class="caught-fish-image">
+        <h2>Du fangede en fisk! 🎣</h2>
+        <h3>PALET KIRURG</h3>
+        <p>Legesyg, lidt glemsom og altid nysgerrig</p>
+        <p>Kan lide at undersøge koraller og sten</p>
+        <p>Spiser små alger og planter bidder</p>
+        <button onclick="closeFishInfo('fish1')">Sæt fisken fri</button>
+    </div>
+</div>
+
+<!-- Infoboks for fisk 2 -->
+<div id="fish2-info" class="info-box hidden">
+    <div class="info-content">
+        <span class="close-btn" onclick="closeFishInfo('fish2')">&times;</span>
+           <img src="image/flerfarver.png" alt="Fanget fisk" class="caught-fish-image">
+        <h2>Du fangede en fisk! 🎣</h2>
+        <h3>KONGE FEBARS</h3>
+        <p> Smuk og stolt, som en undervands konge</p>
+        <p>Svømmer ofte alene</p>
+        <p>Spiser alger og smådyr</p>
+        <button onclick="closeFishInfo('fish2')">Sæt fisken fri</button>
+    </div>
+</div>
+
+<!-- Infoboks for Melissas fisk -->
+<div id="fish3-info" class="info-box hidden">
+    <div class="info-content">
+        <span class="close-btn" onclick="closeFishInfo('fish3')">&times;</span>
+           <img src="image/melissa.png" alt="Melissas fisk" class="caught-fish-image">
+        <h2>Du fangede en fisk! 🎣</h2>
+        <h3>BRUN KIRURG</h3>
+        <p> Svømmer langs bundene</p>
+        <p>Ser ofte efter små bidder mad</p>
+        <p>Rolig og afslappet, kan lide at være alene</p>
+        <button onclick="closeFishInfo('fish3')">Sæt fisken fri</button>
+    </div>
+</div>
+
+
+<!-- Infoboks for fisk 6 -->
+<div id="fish6-info" class="info-box hidden">
+    <div class="info-content">
+        <span class="close-btn" onclick="closeFishInfo('fish6')">&times;</span>
+           <img src="image/stiber.png" alt="Fanget fisk" class="caught-fish-image">
+        <h2>Du fangede en fisk! 🎣</h2>
+        <h3>GULFINNET KIRURG</h3>
+        <p> Gule finner, der vifter hurtigt</p>
+        <p>Elsker at gemme sig mellem koraller</p>
+        <p>Spiser mest alger og små planter</p>
+        <button onclick="closeFishInfo('fish6')">Sæt fisken fri</button>
+    </div>
+</div>
+
+
+<!-- Infoboks for fisk 9 -->
+<div id="fish9-info" class="info-box hidden">
+    <div class="info-content">
+        <span class="close-btn" onclick="closeFishInfo('fish9')">&times;</span>
+           <img src="image/fisk9.png" alt="Fanget fisk" class="caught-fish-image">
+        <h2>Du fangede en fisk! 🎣</h2>
+        <h3>Hvidstrubet kirurg</h3>
+        <p>Spiser smådyr og alger</p>
+        <p>Svømmer hurtigt og elsker at lege med venner</p>
+        <p>Bor i revet og gemmer sig mellem koraller</p>
+        <button onclick="closeFishInfo('fish9')">Sæt fisken fri</button>
+    </div>
+</div>
+
+
+<!-- Infoboks for Benjamins fisk -->
+<div id="fish13-info" class="info-box hidden">
+    <div class="info-content">
+        <span class="close-btn" onclick="closeFishInfo('fish13')">&times;</span>
+           <img src="image/fisk13.png" alt="Benjamins fisk" class="caught-fish-image">
+        <h2>Du fangede en fisk! 🎣</h2>
+        <h3>Pudsefisk</h3>
+        <p>Hjælper andre fisk ved at spise snavs fra kroppen</p>
+        <p>Holder akvariet og de andre fisk rene</p>
+        <p>Lille, men meget hjælpsom</p>
+        <button onclick="closeFishInfo('fish13')">Sæt fisken fri</button>
+    </div>
+</div>
+
+<!-- Infoboks for fisk 14 -->
+<div id="fish14-info" class="info-box hidden">
+    <div class="info-content">
+        <span class="close-btn" onclick="closeFishInfo('fish14')">&times;</span>
+           <img src="image/fisk14.png" alt="Fanget fisk" class="caught-fish-image">
+        <h2>Du fangede en fisk! 🎣</h2>
+        <h3>Sortbåndet kirurg</h3>
+        <p>Ligner en lille ninja i vandet</p>
+        <p>Nipper i alger og hjælper med at holde revet rent</p>
+        <p>Kan lide at svømme i grupper</p>
+        <button onclick="closeFishInfo('fish14')">Sæt fisken fri</button>
+    </div>
+</div>
+
+<!-- Infoboks for fisk 15 -->
+<div id="fish15-info" class="info-box hidden">
+    <div class="info-content">
+        <span class="close-btn" onclick="closeFishInfo('fish15')">&times;</span>
+           <img src="image/fisk15.png" alt="Fanget fisk" class="caught-fish-image">
+        <h2>Du fangede en fisk! 🎣</h2>
+        <h3>Rævefæs</h3>
+        <p>Snude som en ræv</p>
+        <p>Kan skifte farve, når den bliver bange</p>
+        <p>Sjov og nysgerrig, elsker at udforske</p>
+        <button onclick="closeFishInfo('fish15')">Sæt fisken fri</button>
+    </div>
+</div>
+
+<!-- Infoboks for fisk 16 -->
+<div id="fish16-info" class="info-box hidden">
+    <div class="info-content">
+        <span class="close-btn" onclick="closeFishInfo('fish16')">&times;</span>
+           <img src="image/fisk16.png" alt="Fanget fisk" class="caught-fish-image">
+        <h2>Du fangede en fisk! 🎣</h2>
+        <h3>Zebrastibet kirurg</h3>
+        <p>Hurtig og elsker at lege med andre fisk</p>
+        <p>Svømmer i små grupper og følger hinanden</p>
+        <p>Spiser mest alger</p>
+        <button onclick="closeFishInfo('fish16')">Sæt fisken fri</button>
+    </div>
+</div>
+
+<!-- Infoboks for fisk 17 -->
+<div id="fish17-info" class="info-box hidden">
+    <div class="info-content">
+        <span class="close-btn" onclick="closeFishInfo('fish17')">&times;</span>
+           <img src="image/fisk17.png" alt="Fanget fisk" class="caught-fish-image">
+        <h2>Du fangede en fisk! 🎣</h2>
+        <h3>Blåøjet sandsnuser</h3>
+        <p>Graver huller i sandet for at gemme sig</p>
+        <p>Elsker at svømme i sandet</p>
+        <p>Spiser små dyr og plankton</p>
+        <button onclick="closeFishInfo('fish17')">Sæt fisken fri</button>
+    </div>
+</div>
+
+<!-- Infoboks for Dittes fisk -->
+<div id="fish18-info" class="info-box hidden">
+    <div class="info-content">
+        <span class="close-btn" onclick="closeFishInfo('fish18')">&times;</span>
+           <img src="image/fisk18.png" alt="Dittes fisk" class="caught-fish-image">
+        <h2>Du fangede en fisk! 🎣</h2>
+        <h3>Pincetfisk</h3>
+        <p>Gul med pigge</p>
+        <p>Stikker fjender, så de ikke kan spise den</p>
+        <p>Lidt genert, men nyder at svømme i små grupper</p>
+        <button onclick="closeFishInfo('fish18')">Sæt fisken fri</button>
+    </div>
+</div>
+
+<!-- Infoboks for fisk 19 -->
+<div id="fish19-info" class="info-box hidden">
+    <div class="info-content">
+        <span class="close-btn" onclick="closeFishInfo('fish19')">&times;</span>
+           <img src="image/fisk19.png" alt="Fanget fisk" class="caught-fish-image">
+        <h2>Du fangede en fisk! 🎣</h2>
+        <h3>Chromis</h3>
+        <p>Blågrønne og glade</p>
+        <p>Svømmer som en dans i vandet, i store grupper</p>
+        <p>Lille og hurtig, elsker at lege</p>
+        <button onclick="closeFishInfo('fish19')">Sæt fisken fri</button>
+    </div>
+</div>
+
+<!-- Infoboks for fisk 20 -->
+<div id="fish20-info" class="info-box hidden">
+    <div class="info-content">
+        <span class="close-btn" onclick="closeFishInfo('fish20')">&times;</span>
+           <img src="image/fisk20.png" alt="Fanget fisk" class="caught-fish-image">
+        <h2>Du fangede en fisk! 🎣</h2>
+        <h3>Ildhalekutling</h3>
+        <p>Lynhurtig og lille</p>
+        <p>Hale lyser rødt som ild</p>
+        <p>Kan svømme hurtigt rundt i akvariet</p>
+        <button onclick="closeFishInfo('fish20')">Sæt fisken fri</button>
+    </div>
+</div>
+
+<script src="spil.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Information - Akvariet</title>
+  <!-- Info-side lavet af Ditte -->
+
+  <style>
+    /* --- GENERELT --- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', sans-serif;
+
+      background: url('image/baggrund.png') no-repeat center center;
+      background-size: cover;
+
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    } 
+
+    /* --- HJEM-KNAP --- */
+    .home-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: none;
+      background: white;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-size: 28px;
+      transition: 0.2s;
+      z-index: 10;
+    }
+
+    .home-btn:hover {
+      background: #f0f0f0;
+    }
+
+    /* --- INFO-BOKS --- */
+    .info-box {
+      background-color: #ffb6f0;
+      border-radius: 25px;
+      padding: 30px 40px;
+      width: 70%;
+      max-width: 800px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      color: white;
+      text-align: center;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .info-header {
+      background: #e48ad4;
+      border-radius: 15px;
+      padding: 10px 0;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .sub-header {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    /* --- MENU --- */
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .menu-item {
+      background-color: #e48ad4;
+      padding: 15px 20px;
+      border-radius: 15px;
+      font-size: 1.2rem;
+      cursor: default;
+      transition: 0.2s;
+      color: white;
+      text-align: center;
+    }
+
+    .menu-item.clickable {
+      cursor: pointer;
+      background-color: #d870d0;
+    }
+
+    .menu-item.clickable:hover {
+      background-color: #c25fbf;
+    }
+
+    .menu-item.disabled {
+  opacity: 1;                /* Så de ser normale ud */
+  cursor: pointer;            /* Cursoren bliver til hånd, så det ligner klikbart */
+  background-color: #e48ad4;  /* Samme farve som klikbare */
+  transition: 0.2s;
+}
+
+.menu-item.disabled:hover {
+  background-color: #c25fbf; /* Hover-effekt som de klikbare */
+}
+
+
+    /* --- GRID MED FISK --- */
+    .fish-grid {
+      display: none; /* skjul til start */
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      text-align: center;
+    }
+
+    .fish-card {
+      background-color: #f7aee0;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: inset 0 0 10px rgba(255,255,255,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .fish-card img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .fish-card ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: left;
+      width: 100%;
+    }
+
+    .fish-card li::before {
+      content: "• ";
+      color: white;
+    }
+
+    .fish-card li {
+      margin-bottom: 5px;
+      line-height: 1.4;
+    }
+
+  .home-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: #4CAF50;   /* Grøn knap */
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.2s;
+}
+
+.home-btn:hover {
+  transform: scale(1.1);
+  background-color: #45a049; /* lidt mørkere grøn på hover */
+}
+
+/* --- Boble bag home-knap --- */
+.home-btn::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.9),
+    rgba(173, 216, 230, 0.2) 40%,
+    rgba(255, 255, 255, 0.1) 70%,
+    rgba(255, 182, 193, 0.1) 90%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 25px rgba(255, 255, 255, 0.4),
+    inset 0 0 25px rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  z-index: -1;
+  animation: bobleglow 6s ease-in-out infinite alternate;
+}
+
+/* Lysrefleks */
+.home-btn::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 25px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.1) 60%,
+    transparent 100%
+  );
+  opacity: 0.8;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: reflektion 4s ease-in-out infinite alternate;
+}
+
+/* --- Animationer --- */
+@keyframes bobleglow {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(-50%, -50%) scale(1.05); }
+}
+
+@keyframes reflektion {
+  0% { transform: translate(0, 0); opacity: 0.8; }
+  100% { transform: translate(2px, 2px); opacity: 0.6; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Hjem-knap -->
+  <button class="home-btn" onclick="window.location.href='index.html'">🏠</button>
+
+  <!-- Infoboks -->
+  <div class="info-box">
+    <div class="info-header" onclick="showMenu()">INFORMATION</div>
+
+    <!-- Menu -->
+    <div class="menu" id="menu">
+      <div class="menu-item clickable" onclick="showFishList()">Læs mere om vores fisk</div>
+      <div class="menu-item disabled">Spil: Fang fiskene</div>
+      <div class="menu-item disabled">Spil: Find vennerne</div>
+      <div class="menu-item disabled">Spil: Tæl fiskene</div>
+      <div class="menu-item disabled">Spil: Byg dit eget akvarie</div>
+      <div class="menu-item disabled">Spil: Farvejagt</div>
+    </div>
+
+    <!-- Fiskeliste -->
+    <div id="fishContent" style="display:none;">
+      <div class="sub-header">FISKENE I VORES AKVARIE</div>
+      <div id="fishContainer" class="fish-grid"></div>
+    </div>
+
+  </div>
+
+  <script>
+    // 🎣 FISKEDATA
+    const fishData = [
+      {
+        name: "Gul fisk",
+        img: "image/gulfisk.png",
+        traits: [
+          "Solskinsgul og nem at få øje på",
+          "Nysgerrig og følger de andre fisk",
+          "Kan lide små snacks fra revet",
+        ],
+      },
+      {
+        name: "Klovnfisk",
+        img: "image/klovnfisk.png",
+        traits: [
+          "Svømmer langs bunden",
+          "Ser ofte efter små bidder mad",
+          "Rolig og afslappet, kan lide at være alene",
+        ],
+      },
+      {
+        name: "Blå-gul stribet fisk",
+        img: "image/gulstribetfisk.png",
+        traits: [
+          "Blå og gul farve, flot og nem at kende",
+          "Svømmer hurtigt og elsker at lege med venner",
+          "Bor i revet og gemmer sig mellem koraller",
+        ],
+      },
+      {
+        name: "Blå fisk",
+        img: "image/blåfisk.png",
+        traits: [
+          "Bevægelse: stille og roligt",
+          "Smuk at se på og elegant",
+          "Spiser alger og smådyr",
+        ],
+      },
+      {
+        name: "Gul-blå stribet fisk",
+        img: "image/blåstribetfisk.png",
+        traits: [
+          "Legesyg, lidt glemsom og altid nysgerrig",
+          "Kan lide at undersøge koraller og sten",
+        ],
+      },
+      {
+        name: "Rød fisk",
+        img: "image/rødfisk.png",
+        traits: [
+          "Lynhurtig og lille",
+          "Hale lyser rødt som ild",
+          "Kan svømme hurtigt rundt i akvariet",
+        ],
+      },
+      {
+        name: "Puffisk",
+        img: "image/puffisk.png",
+        traits: [
+          "Primære føde er skaldyr, men i princippet er de altædende.",
+          "Denne fisk er meget intelligent",
+          "Har to tænder for oven og to forneden i munden",
+        ],
+      },
+    ];
+
+    // --- Funktioner ---
+    function showFishList() {
+      document.getElementById("menu").style.display = "none"; // skjul menu
+      const fishContent = document.getElementById("fishContent");
+      const container = document.getElementById("fishContainer");
+      container.innerHTML = ""; // ryd tidligere indhold
+
+      fishData.forEach(fish => {
+        const card = document.createElement("div");
+        card.className = "fish-card";
+
+        card.innerHTML = `
+          <img src="${fish.img}" alt="${fish.name}">
+          <ul>
+            ${fish.traits.map(trait => `<li>${trait}</li>`).join("")}
+          </ul>
+        `;
+
+        container.appendChild(card);
+      });
+
+      fishContent.style.display = "block"; // vis fiskeliste
+      container.style.display = "grid";
+    }
+
+    function showMenu() {
+      // Skjul fiskeliste og vis menu igen
+      document.getElementById("fishContent").style.display = "none";
+      document.getElementById("fishContainer").style.display = "none";
+      document.getElementById("menu").style.display = "flex";
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
